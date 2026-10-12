@@ -84,6 +84,8 @@ box-shadow: 0 0 50px -10px rgba(255, 255, 255, 0.05);
 </div>
 </div>
 </section>
+
+<!-- Schedule Section with Automated Countdowns -->
 <section id="schedule" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
 <div class="text-center mb-16">
 <span class="text-xs uppercase font-mono tracking-widest text-neutral-400">Schedule & Activities</span>
@@ -147,6 +149,7 @@ box-shadow: 0 0 50px -10px rgba(255, 255, 255, 0.05);
 </div>
 </div>
 </section>
+
 <section id="works" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 <div class="text-center mb-16">
 <span class="text-xs uppercase font-mono tracking-widest text-neutral-400">Filmography & Projects</span>
@@ -188,19 +191,37 @@ box-shadow: 0 0 50px -10px rgba(255, 255, 255, 0.05);
 </div>
 </div>
 </section>
+
+<!-- Social Section with Interactive Tabs for Instagram, X, and TikTok -->
 <section id="counter" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-neutral-950/50">
-<div class="max-w-4xl mx-auto text-center glass-card p-10 sm:p-14 rounded-3xl border border-white/10 relative overflow-hidden">
+<div class="max-w-4xl mx-auto text-center glass-card p-8 sm:p-14 rounded-3xl border border-white/10 relative overflow-hidden">
 <div class="absolute -right-16 -top-16 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
 <div class="absolute -left-16 -bottom-16 w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+
+<!-- Social Platform Toggle Tabs -->
+<div class="flex justify-center space-x-3 mb-8">
+<button onclick="switchSocial('instagram')" id="tab-instagram" class="social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all bg-white text-black shadow-lg">
+<i class="fa-brands fa-instagram mr-1.5 text-pink-500"></i> Instagram
+</button>
+<button onclick="switchSocial('twitter')" id="tab-twitter" class="social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10">
+<i class="fa-brands fa-x-twitter mr-1.5 text-sky-400"></i> X (Twitter)
+</button>
+<button onclick="switchSocial('tiktok')" id="tab-tiktok" class="social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10">
+<i class="fa-brands fa-tiktok mr-1.5 text-white"></i> TikTok
+</button>
+</div>
+
+<!-- Instagram Panel -->
+<div id="panel-instagram" class="social-panel">
 <div class="mb-6 flex justify-center">
 <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-amber-500 via-pink-600 to-purple-600 shadow-xl">
-<img src="profilig.jpg" alt="bbil1ypn Instagram Profile" class="w-full h-full object-cover rounded-full border-2 border-neutral-950" onerror="this.onerror=null; this.src='https://placehold.co/200x200/111111/ffffff?text=IG';">
+<img src="profilig.jpg" alt="Instagram Profile" class="w-full h-full object-cover rounded-full border-2 border-neutral-950" onerror="this.onerror=null; this.src='https://placehold.co/200x200/111111/ffffff?text=IG';">
 </div>
 </div>
 <span class="text-xs uppercase font-mono tracking-widest text-neutral-400 mb-2 block"><i class="fa-brands fa-instagram mr-1.5 text-pink-400"></i>Official Instagram @bbil1ypn</span>
-<h2 class="text-2xl sm:text-3xl text-white font-bold mb-3">BILLY PATCHANON 唐宇峰</h2>
-<p class="text-neutral-400 text-sm max-w-lg mx-auto mb-8">Let's grow together and support every step of his journey on social media!</p>
-<div class="text-4xl sm:text-6xl font-mono font-bold text-white mb-8 tracking-wider" id="starCountDisplay">593K</div>
+<h2 class="text-2xl sm:text-3xl text-white font-bold mb-3">Billy Patchanon's Social</h2>
+<p class="text-neutral-400 text-sm max-w-lg mx-auto mb-6">Let's grow together and support every step of his journey on social media!</p>
+<div class="text-4xl sm:text-6xl font-mono font-bold text-white mb-8 tracking-wider">593K</div>
 <div class="relative inline-block">
 <a href="https://www.instagram.com/bbil1ypn/" target="_blank" class="group relative px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 text-white font-semibold rounded-full text-base sm:text-lg shadow-xl hover:opacity-90 transition-all transform hover:scale-105 active:scale-95 inline-flex items-center space-x-3">
 <i class="fa-brands fa-instagram text-xl"></i>
@@ -208,7 +229,48 @@ box-shadow: 0 0 50px -10px rgba(255, 255, 255, 0.05);
 </a>
 </div>
 </div>
+
+<!-- X (Twitter) Panel -->
+<div id="panel-twitter" class="social-panel hidden">
+<div class="mb-6 flex justify-center">
+<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-neutral-800 border border-white/20 shadow-xl">
+<img src="Xpro.jpg" alt="X Profile" class="w-full h-full object-cover rounded-full border-2 border-neutral-950" onerror="this.onerror=null; this.src='https://placehold.co/200x200/111111/ffffff?text=X';">
+</div>
+</div>
+<span class="text-xs uppercase font-mono tracking-widest text-neutral-400 mb-2 block"><i class="fa-brands fa-x-twitter mr-1.5 text-sky-400"></i>Official X @bbil1ypn</span>
+<h2 class="text-2xl sm:text-3xl text-white font-bold mb-3">Billy Patchanon on X</h2>
+<p class="text-neutral-400 text-sm max-w-lg mx-auto mb-6">Stay updated with latest tweets, news, and real-time updates!</p>
+<div class="text-4xl sm:text-6xl font-mono font-bold text-white mb-8 tracking-wider">95.3K</div>
+<div class="relative inline-block">
+<a href="https://x.com/bbil1ypn?s=21" target="_blank" class="group relative px-8 py-4 bg-neutral-900 border border-white/20 text-white font-semibold rounded-full text-base sm:text-lg shadow-xl hover:bg-neutral-800 transition-all transform hover:scale-105 active:scale-95 inline-flex items-center space-x-3">
+<i class="fa-brands fa-x-twitter text-xl"></i>
+<span>Follow @bbil1ypn</span>
+</a>
+</div>
+</div>
+
+<!-- TikTok Panel -->
+<div id="panel-tiktok" class="social-panel hidden">
+<div class="mb-6 flex justify-center">
+<div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-neutral-800 border border-white/20 shadow-xl">
+<img src="TTPRO.jpg" alt="TikTok Profile" class="w-full h-full object-cover rounded-full border-2 border-neutral-950" onerror="this.onerror=null; this.src='https://placehold.co/200x200/111111/ffffff?text=TikTok';">
+</div>
+</div>
+<span class="text-xs uppercase font-mono tracking-widest text-neutral-400 mb-2 block"><i class="fa-brands fa-tiktok mr-1.5 text-white"></i>Official TikTok @bbil1ypn</span>
+<h2 class="text-2xl sm:text-3xl text-white font-bold mb-3">Billy Patchanon on TikTok</h2>
+<p class="text-neutral-400 text-sm max-w-lg mx-auto mb-6">Watch exclusive short clips, behind-the-scenes, and moments!</p>
+<div class="text-4xl sm:text-6xl font-mono font-bold text-white mb-8 tracking-wider">452.8K</div>
+<div class="relative inline-block">
+<a href="https://www.tiktok.com/@bbil1ypn?_r=1&_t=ZS-9AV2NBf6z5g" target="_blank" class="group relative px-8 py-4 bg-neutral-900 border border-white/20 text-white font-semibold rounded-full text-base sm:text-lg shadow-xl hover:bg-neutral-800 transition-all transform hover:scale-105 active:scale-95 inline-flex items-center space-x-3">
+<i class="fa-brands fa-tiktok text-xl"></i>
+<span>Follow @bbil1ypn</span>
+</a>
+</div>
+</div>
+
+</div>
 </section>
+
 <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
 <div class="glass-card p-8 sm:p-12 rounded-3xl border border-white/10 text-center">
 <h2 class="text-3xl sm:text-4xl text-white font-bold mt-2 mb-4">Contact for work</h2>
@@ -245,6 +307,8 @@ For business inquiries, event bookings, brand endorsements, and other profession
 <p>© 2026 Be Your STAR1IGHT. All rights reserved.</p>
 <div class="flex space-x-6 text-base">
 <a href="https://www.instagram.com/bbil1ypn/" target="_blank" class="hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+<a href="https://x.com/bbil1ypn?s=21" target="_blank" class="hover:text-white transition-colors" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+<a href="https://www.tiktok.com/@bbil1ypn?_r=1&_t=ZS-9AV2NBf6z5g" target="_blank" class="hover:text-white transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 </div>
 </footer>
@@ -260,6 +324,23 @@ link.addEventListener('click', () => {
 mobileMenu.classList.add('hidden');
 });
 });
+
+// Social Tab Switcher Function
+function switchSocial(platform) {
+const panels = document.querySelectorAll('.social-panel');
+panels.forEach(panel => panel.classList.add('hidden'));
+
+const tabs = document.querySelectorAll('.social-tab');
+tabs.forEach(tab => {
+tab.className = "social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all bg-white/10 text-white hover:bg-white/20 border border-white/10";
+});
+
+document.getElementById('panel-' + platform).classList.remove('hidden');
+
+const activeTab = document.getElementById('tab-' + platform);
+activeTab.className = "social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wider transition-all bg-white text-black shadow-lg";
+}
+
 // Real-time Countdown Timer Script
 function updateCountdowns() {
 const timers = document.querySelectorAll('.countdown-timer');

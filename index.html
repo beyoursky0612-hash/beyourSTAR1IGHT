@@ -70,6 +70,37 @@ Welcome to STAR1IGHT. Step inside to explore schedules, works, and journeys.
 </div>
 </section>
 
+<!-- Header / Navbar -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+<span class="text-white text-xs">✦</span>
+</div>
+<span class="tracking-widest text-sm sm:text-base font-semibold text-white">Be Your STAR1IGHT</span>
+</div>
+<nav class="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wide">
+<a href="#letter" class="text-white/70 hover:text-white transition-colors">Home</a>
+<a href="#schedule" class="text-white/70 hover:text-white transition-colors">Schedule</a>
+<a href="#works" class="text-white/70 hover:text-white transition-colors">Works</a>
+<a href="#counter" class="text-white/70 hover:text-white transition-colors">Social</a>
+<a href="#contact" class="text-white/70 hover:text-white transition-colors">Contact</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button id="mobileMenuBtn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
+<i class="fa-solid fa-bars text-xl"></i>
+</button>
+</div>
+</div>
+<div id="mobileMenu" class="hidden md:hidden glass-card border-b border-white/10 px-6 py-6 space-y-4">
+<a href="#letter" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Home</a>
+<a href="#schedule" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Schedule</a>
+<a href="#works" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Works</a>
+<a href="#counter" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Social</a>
+<a href="#contact" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Contact</a>
+</div>
+</header>
+
 <main class="flex-grow pt-20">
 <!-- Ticket On Sale Countdown Section -->
 <section id="ticket-countdown" class="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -115,38 +146,6 @@ Ticket purchasing channel via LINE OA : <span class="text-amber-300 font-bold">@
 </div>
 </section>
 
-<!-- Header / Navbar -->
-<header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 transition-all duration-300">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-<div class="flex items-center space-x-3">
-<div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-<span class="text-white text-xs">✦</span>
-</div>
-<span class="tracking-widest text-sm sm:text-base font-semibold text-white">Be Your STAR1IGHT</span>
-</div>
-<nav class="hidden md:flex items-center space-x-6 text-sm font-medium tracking-wide">
-<a href="#letter" class="text-white/70 hover:text-white transition-colors">Home</a>
-<a href="#schedule" class="text-white/70 hover:text-white transition-colors">Schedule</a>
-<a href="#works" class="text-white/70 hover:text-white transition-colors">Works</a>
-<a href="#counter" class="text-white/70 hover:text-white transition-colors">Social</a>
-<a href="#contact" class="text-white/70 hover:text-white transition-colors">Contact</a>
-</nav>
-<div class="flex items-center space-x-4">
-<button id="mobileMenuBtn" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Menu">
-<i class="fa-solid fa-bars text-xl"></i>
-</button>
-</div>
-</div>
-<div id="mobileMenu" class="hidden md:hidden glass-card border-b border-white/10 px-6 py-6 space-y-4">
-<a href="#letter" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Home</a>
-<a href="#schedule" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Schedule</a>
-<a href="#works" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Works</a>
-<a href="#counter" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Social</a>
-<a href="#contact" class="mobile-link block text-white/80 hover:text-white font-medium text-base">Contact</a>
-</div>
-</header>
-
-<main class="flex-grow pt-20">
 <section id="letter" class="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
 <div class="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0,transparent_70%)]"></div>
 <div class="relative z-10 max-w-4xl mx-auto text-center glass-card p-8 sm:p-14 lg:p-16 rounded-3xl glow-effect border border-white/10">
@@ -522,6 +521,7 @@ activeTab.className = "social-tab px-5 py-2.5 rounded-full text-xs sm:text-sm fo
 
 // Real-time Countdown Timer Script
 function updateCountdowns() {
+// Schedule Countdowns
 const timers = document.querySelectorAll('.countdown-timer');
 timers.forEach(timer => {
 const eventDate = new Date(timer.getAttribute('data-date')).getTime();
@@ -537,6 +537,28 @@ const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 timer.innerText = `countdown ${days}d ${hours}h ${minutes}m ${seconds}s left`;
 }
 });
+
+// Ticket On Sale Countdown (Target: Oct 31, 2026 18:00:00)
+const ticketSaleDate = new Date("2026-10-31T18:00:00").getTime();
+const nowTime = new Date().getTime();
+const ticketDistance = ticketSaleDate - nowTime;
+
+if (ticketDistance < 0) {
+if(document.getElementById('t-days')) document.getElementById('t-days').innerText = "00";
+if(document.getElementById('t-hours')) document.getElementById('t-hours').innerText = "00";
+if(document.getElementById('t-mins')) document.getElementById('t-mins').innerText = "00";
+if(document.getElementById('t-secs')) document.getElementById('t-secs').innerText = "00";
+} else {
+const tDays = Math.floor(ticketDistance / (1000 * 60 * 60 * 24));
+const tHours = Math.floor((ticketDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const tMins = Math.floor((ticketDistance % (1000 * 60 * 60)) / (1000 * 60));
+const tSecs = Math.floor((ticketDistance % (1000 * 60)) / 1000);
+
+if(document.getElementById('t-days')) document.getElementById('t-days').innerText = String(tDays).padStart(2, '0');
+if(document.getElementById('t-hours')) document.getElementById('t-hours').innerText = String(tHours).padStart(2, '0');
+if(document.getElementById('t-mins')) document.getElementById('t-mins').innerText = String(tMins).padStart(2, '0');
+if(document.getElementById('t-secs')) document.getElementById('t-secs').innerText = String(tSecs).padStart(2, '0');
+}
 }
 setInterval(updateCountdowns, 1000);
 updateCountdowns();
